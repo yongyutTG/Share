@@ -1,0 +1,50 @@
+version: "2"
+services:
+  web:
+    image: webdevops/php-nginx:7.4
+    # build: .
+    volumes:
+      - ./:/app
+    ports:
+      - 80:80
+    environment:
+      WEB_DOCUMENT_ROOT: /app
+      PHP_DATE_TIMEZONE: Asia/Bangkok
+      PHP_MEMORY_LIMIT: 2048M
+      PHP_MAX_EXECUTION_TIME: 15
+      FPM_RLIMIT_FILES: 1000000
+      FPM_MAX_REQUESTS: 1000
+      FPM_PM_START_SERVERS: 60
+      FPM_PM_MIN_SPARE_SERVERS: 30
+      FPM_PM_MAX_SPARE_SERVERS: 60
+      FPM_REQUEST_TERMINATE_TIMEOUT: 30
+      FPM_PM_MAX_CHILDREN: 60
+    restart: always
+    #depends_on:
+     # - mariadb
+  memcache:
+    image: memcached:1.5
+
+  mariadb:
+    image: 'docker.io/bitnami/mariadb:10.3-debian-10'
+    environment:
+      - MARIADB_ROOT_PASSWORD=PHCdi,loy[lo6o
+      - MARIADB_DATABSE=kondesign_osm
+      - MARIADB_USER=root
+      - MARIADB_PASSWORD=PHCdi,koy[ko6o
+      - MARIADB_HOST=localhost
+    volumes:
+      - 'mariadb_data:/bitnami'
+    
+  phpmyadmin:
+    image: 'docker.io/bitnami/phpmyadmin:5-debian-10'
+    ports:
+      - '8088:8088'
+      - '443:8443'
+    depends_on:
+      - mariadb
+      
+volumes:
+ mariadb_data:
+   driver: local
+

@@ -1,0 +1,89 @@
+#header{background:#33135c;height:50px;border-bottom:2px solid #d074f2; display: flex; font-family: Mitr-light; color: #fff;z-index: 1037; position: fixed; top: 0; width: 100%;}
+#header .system_name {margin-left: 75px;}
+#header .system_name h1{flex-grow: 1; font-size: 22px; margin-top:10px;}
+#logo {
+    position: fixed;
+    top: 5px;
+    left: 10px;
+    z-index: 1038;
+    width: 38px;
+  }
+.navbar-nav.mainmenu {
+	margin-left: 15px;
+}  
+.main-header .nav-link {
+	height: 2.2rem;
+	position: relative;
+}
+.navbar-white {
+	background-color: #aa60c6;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+}
+.control-sidebar, .control-sidebar::before {
+	bottom: calc(3.5rem + 1px);
+	display: block;
+	right: -75%;
+	width: 70%;
+	transition: right 1s linear, display 5s linear;
+}
+.control-sidebar-dark {
+	background: #fff;
+	box-shadow: -1px -1px 10px 2px #797474;
+}
+.card-primary.card-outline {
+	border-top: 3px solid #aeaeae;
+}
+.nav-link {
+	display: block;
+	padding: 0.5rem 1rem;
+	font-family: Mitr;
+}
+.layout-navbar-fixed .wrapper .main-header {
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 50px;
+	z-index: 1037;
+    padding: 0;
+    border-radius: 0 0 0 65px;
+}
+.layout-navbar-fixed .wrapper .control-sidebar {
+	top: -40px;
+}
+.mt120{margin-top: 120px;}
+
+.megasubmenu{ padding: 0px; }
+
+@media (min-width: 992px){
+  .dropdown-menu .dropdown-toggle:after{
+    border-top: .3em solid transparent;
+      border-right: 0;
+      border-bottom: .3em solid transparent;
+      border-left: .3em solid;
+      float: right;
+      margin-top: 10px;
+  }
+  .dropdown-menu{
+    margin:0; 
+  }
+  .megasubmenu{ 
+    left:100%; top:0; min-height: 100%; min-width:500px;
+    background: transparent; align-items: baseline;
+    box-shadow: none;
+  }
+  .dropdown-menu > li:hover .megasubmenu, .dropdown-menu > li:hover .megasubmenu .dropdown-menu{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: flex-end;
+  }
+  .dropdown-menu > li:hover .megasubmenu > .dropdown-menu{
+    position: relative;
+    background: #fff;
+	box-shadow: none;
+  }
+  .dropdown-menu > li:hover .megasubmenu > .dropdown-menu  .dropdown-menu{display: none !important;}
+  .dropdown-menu > li .megasubmenu > .dropdown-menu li:hover > .dropdown-menu{display: block !important;}
+}
