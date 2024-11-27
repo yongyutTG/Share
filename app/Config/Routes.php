@@ -64,3 +64,8 @@ $routes->group('member', static function ($routes) {
 $routes->group('systemControl', static function ($routes) {
     $routes->get('/', 'SystemControl::index');
 });
+
+
+
+$routes->get('/chart', 'ChartController::index');
+$routes->get('/chart/getChartData', 'ChartController::getChartData');

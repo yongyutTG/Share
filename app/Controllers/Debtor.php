@@ -8,16 +8,8 @@ class Debtor extends BaseController {
 
     public function __construct() {
         helper("cookie");
-        // get cookie
-        // get cookie
-        // $this->user_id = get_cookie('id');
-        // $this->id = get_cookie('id');
-        // $this->name = get_cookie('name');
         $this->db = \Config\Database::connect();
         $this->debtormodel = new Debtor_model();
-        //$this->centermodel = new Center_model();
-        
-
     }
 
     public function index() {
@@ -27,8 +19,7 @@ class Debtor extends BaseController {
         $data = [];
         $data['test'] = $encrypted_data;
         $data['test2'] = $decrypted_data = $encrypter->decrypt(hex2bin($encrypted_data));
-        // $script_path = '';
-        // $this->template->set_js('myscript', script_tag($script_path));
+      
         return $this->template->load_view_content('contents/Debtor/index', $data);  //  load_view_content
     }
 
@@ -46,7 +37,7 @@ class Debtor extends BaseController {
             }
 
             // รายละเอียดสมาชิก
-            $results_mem_detail = $this->debtormodel->member_detail($emp_id, $mem_id);
+            $results_mem_detail = $this->debtormodel->member_detail($emp_id, $mem_id); 
             
         //  สัญญา
             $results_contract_list = $this->debtormodel->contract_list($emp_id, $mem_id);
